@@ -23,8 +23,8 @@ function App() {
     //construct the prompt
     const prompt = `I need a complete travel plan with places or attractions to visit and food to try in for ${dayCount} Days in ${destination} in  a budget of Rs${budget}.show the output day by day in paragraph format in precise on point.
     the output should contain only the table and the budget breakdown.No other text should be added to the output. the output should include \n to repesent new line  and \t to represent tab.
-    output format: Day 1:  details 
-    Day 2: details.. and so on`;
+    output format: Day 1  details 
+    Day 2 details.. and so on`;
 
     // construct the reques option
     const requestOptions = {
@@ -61,7 +61,7 @@ function App() {
   };
   return (
     <>
-      <h1 className="font-Rampart text-3xl">Plan My Trip </h1>
+      {!travelPlan ? (<h1 className="font-Rampart text-3xl">Plan My Trip </h1>) : (<h1 className="font-Rampart text-3xl">Generated Travel Plan</h1>)}
       {!travelPlan && (
         <form onSubmit={handleFormSubmit} className=" m-10">
           <input
@@ -111,18 +111,16 @@ function App() {
         </form>
       )}
       {travelPlan && (
-        <div className="bg-gray-500 rounded-lg shadow-lg p-2 m-2">
-          <h2 className="block font-bold mb-2 text-white">
-            Generated Travel Plan:
-          </h2>
+        <div className=" border rounded-lg shadow-lg p-2 m-2">
+          
           <div>
             {travelPlan.map((item, index) =>
               item.includes("Day") || item.includes("Budget breakdown") ? (
-                <h3 className="block font-bold mb-2 text-black" key={index}>
+                <h3 className="block font-bold mb-2 text-sky-700 text-2xl text-center underline p-2 " key={index}>
                   {item}
                 </h3>
               ) : (
-                <p className="block font-bold mb-2 text-white" key={index}>
+                <p className="block font-bold mb-2  text-cyan-950" key={index}>
                   {item}
                 </p>
               )

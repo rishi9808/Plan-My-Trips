@@ -58,42 +58,44 @@ function App() {
   return (
     <>
         <h1 className="font-Rampart text-3xl">Plan My Trip</h1>
-        {!travelPlan && <form onSubmit={handleFormSubmit}>
-          <label className="block  font-bold mb-2 text-gray-700">
-            Enter your destination:
+        {!travelPlan && <form onSubmit={handleFormSubmit}
+        className=' m-10'
+        >
+          
+          
             <input
               type="text"
               value={destination}
               onChange={(e) => setDestination(e.target.value)}
-              className="shadow appearance-none border rounded m-3 py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded m-3 p-3 text-black leading-tight focus:outline-none focus:shadow-outline"
+              placeholder='Enter your destination...'
             />
-          </label>
+    
           <br />
-          <label className="block font-bold mb-2 text-gray-700">
-            Enter your budget:
+          
             <input
               type="text"
               value={budget}
               onChange={(e) => setBudget(e.target.value)}
-              className="shadow appearance-none border rounded m-3 py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
+              className="block shadow appearance-none border rounded m-3 p-3 text-black leading-tight focus:outline-none focus:shadow-outline"
+              placeholder='Enter your budget'
             />
-          </label>
-          <label className="block font-bold mb-2 text-gray-700">
-            Enter number of days:
             <input
               type="text"
               value={dayCount}
               onChange={(e) => setDayCount(e.target.value)}
-              className="shadow appearance-none border rounded m-3 py-2 px-3 text-black leading-tight focus:outline-none focus:shadow-outline"
+              className="shadow appearance-none border rounded m-3 p-3 text-black leading-tight focus:outline-none focus:shadow-outline"
+              placeholder='Enter number of days'
             />
-          </label>
+          
           <br />
           <button
             type="submit"
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+            className="bg-blue-500 hover:bg-blue-700 text-white font-bold p-2 rounded focus:outline-none focus:shadow-outline"
           >
             Generate Travel Plan
           </button>
+      
         </form>
 }
         {travelPlan && (
